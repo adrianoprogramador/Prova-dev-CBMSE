@@ -1,0 +1,23 @@
+pt-BR:
+  current_locale: "Português do Brasil"
+  welcome: "Seja Bem-vindo"
+  messages:
+    welcome: "Bem vindo"
+    menu: "Para iniciar selecione uma das opções abaixo:"
+    confirm: "Tem Certeza?"
+  hello: "Olá Mundo"
+  links:
+    edit: "Editar"
+    show: "Mostrar"
+    delete: "Deletar"
+    new: "Novo"
+    back: "Voltar"
+  new:
+    pessoa: "Nova Pessoa"
+    tipo_contato: "Tipo de contato"
+  editing:
+    pessoa: "Editando Pessoa"
+    tipo_pessoa: "Editando Tipo de pessoa"
+  showing:
+    pessoa: "Mostrando pessoa"
+    tipo_contato: "Mostrando Tipo de contato"
