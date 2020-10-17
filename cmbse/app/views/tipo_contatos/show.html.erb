@@ -1,0 +1,15 @@
+<h1>Visualizando Tipo de Contato</h1>
+<p id="notice"><%= notice %></p>
+
+<form>
+  <div class="form-group">
+    <%= label_tag nil, "Descrição" %>
+    <%= text_field_tag nil, @tipo_contato.nome, class:"form-control", disabled: true %>
+  </div>
+
+
+</form>
+
+<%= link_to t('links.edit'), edit_tipo_contato_path(@tipo_contato), class:"btn btn-primary" %> |
+<%= link_to t('links.back'), tipo_contatos_path, class:"btn btn-danger" %>
+

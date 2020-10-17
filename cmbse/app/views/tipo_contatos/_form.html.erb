@@ -1,0 +1,25 @@
+<%= form_with(model: tipo_contato, local: true) do |form| %>
+  <% if tipo_contato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo_contato.errors.count, "error") %> prohibited this tipo de contato from being saved:</h2>
+
+      <ul>
+      <% tipo_contato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= form.label "Descrição" %>
+    <%= form.text_field :nome, class:"form-control", placeholder:"Adicione o nome do tipo" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Confirmar", class:"btn btn-primary" %>
+    <%= link_to "Voltar", tipo_contatos_path, class:"btn btn-danger" %>
+  </div>
+<% end %>
+<br>
