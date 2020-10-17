@@ -10,6 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_10_17_020218) do
 
+  create_table "contato_pessoas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "contato"
+    t.bigint "pessoa_id"
+    t.bigint "tipo_contato_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pessoa_id"], name: "index_contato_pessoas_on_pessoa_id"
+    t.index ["tipo_contato_id"], name: "index_contato_pessoas_on_tipo_contato_id"
+  end
+
+  create_table "pessoas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nome", default: "", null: false
+    t.string "sobrenome", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tipo_contatos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "contato_pessoas", "pessoas"
+  add_foreign_key "contato_pessoas", "tipo_contatos"
 end
