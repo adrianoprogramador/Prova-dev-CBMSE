@@ -1,2 +1,19 @@
-<h1>Pessoas#show</h1>
-<p>Find me in app/views/pessoas/show.html.erb</p>
+<h1>Visualizando Pessoa</h1>
+<p id="notice"><%= notice %></p>
+
+<form>
+  <div class="form-group">
+    <%= label_tag nil, @pessoa.class.human_attribute_name(:nome) %>
+    <%= text_field_tag nil, @pessoa.nome, class:"form-control", disabled: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag nil, @pessoa.class.human_attribute_name(:sobrenome) %>
+    <%= text_field_tag nil, @pessoa.sobrenome, class:"form-control", disabled: true %>
+  </div>
+
+</form>
+
+
+<%= link_to t('links.edit'), edit_pessoa_path(@pessoa), class:"btn btn-primary" %> |
+<%= link_to t('links.back'), pessoas_path, class:"btn btn-danger" %>

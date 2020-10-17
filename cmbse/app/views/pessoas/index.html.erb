@@ -1,2 +1,34 @@
-<h1>Pessoas#index</h1>
-<p>Find me in app/views/pessoas/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col">
+    <h1><%= Pessoa.model_name.human(count: @pessoas.count) %></h1>
+  </div>
+  <div class="col">
+    <%= link_to 'Novo', new_pessoa_path, class:"btn btn-primary", style: "float:right" %>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= @pessoas.human_attribute_name(:nome) %></th>
+      <th><%= @pessoas.human_attribute_name(:sobrenome) %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pessoas.each do |pessoa| %>
+      <tr>
+        <td><%= pessoa.nome %></td>
+        <td><%= pessoa.sobrenome %></td>        
+        <td><%= link_to t('links.show'), pessoa %></td>
+        <td><%= link_to t('links.edit'), edit_pessoa_path(pessoa) %></td>
+        <td><%= link_to t('links.delete'), pessoa, method: :delete, data: { confirm: t('messages.confirm') } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
