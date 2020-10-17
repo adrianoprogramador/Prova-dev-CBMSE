@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contato: MyString
+  pessoa: one
+  tipo_contato: one
+
+two:
+  contato: MyString
+  pessoa: two
+  tipo_contato: two
