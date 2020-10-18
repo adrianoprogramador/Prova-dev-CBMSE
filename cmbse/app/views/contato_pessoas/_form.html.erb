@@ -1,0 +1,39 @@
+<%= form_with(model: contato_pessoa, local: true) do |form| %>
+  <% if contato_pessoa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contato_pessoa.errors.count, "error") %> prohibited this contato pessoas from being saved:</h2>
+
+      <ul>
+      <% contato_pessoa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :pessoa_id %>
+    <%= form.select("pessoa_id", @pessoa_opcoes, { include_blank: 'Selecione...' }, class:"form-control") %>   
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= form.label :tipo_contato_id %>
+        <%= form.select("tipo_contato_id", @tipo_contato_opcoes, { include_blank: 'Selecione...' }, class:"form-control") %>   
+      </div>
+    </div>
+    <div class="col">      
+      <div class="form-group">
+        <%= form.label :contato %>
+        <%= form.text_field :contato, class:"form-control", placeholder:"Contato"  %>
+      </div>
+    </div>
+  </div>    
+
+  <div class="actions">
+    <%= form.submit "Confirmar", class:"btn btn-primary" %>
+    <%= link_to "Voltar", contato_pessoas_path, class:"btn btn-danger" %>
+  </div>
+<% end %>
+<br>

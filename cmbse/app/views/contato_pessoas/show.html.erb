@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<form>
+  <div class="form-group">
+    <%= label_tag nil, @contato_pessoa.class.human_attribute_name(:pessoa) %>
+    <%= text_field_tag nil, @contato_pessoa.pessoa.nome, class:"form-control", disabled: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag nil, @contato_pessoa.class.human_attribute_name(:contato) %>
+    <%= text_field_tag nil, @contato_pessoa.contato, class:"form-control", disabled: true %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag nil, @contato_pessoa.class.human_attribute_name(:tipo_contato) %>
+    <%= text_field_tag nil, @contato_pessoa.tipo_contato.nome, class:"form-control", disabled: true %>   
+  </div>
+
+</form>
+
+
+<%= link_to t('links.edit'), edit_contato_pessoa_path(@contato_pessoa), class:"btn btn-primary" %> |
+<%= link_to t('links.back'), contato_pessoas_path, class:"btn btn-danger" %>
