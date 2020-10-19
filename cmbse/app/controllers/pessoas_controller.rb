@@ -1,6 +1,6 @@
 class PessoasController < ApplicationController
   before_action :set_pessoa, only: [:show, :edit, :update, :destroy]
-  before_action :select_tipo_contato_opcoes, only: [:new, :create, :edit, :update, :destroy]
+  before_action :select_tipo_contato_opcoes, only: [:new, :create, :edit, :update]
 
   def index
     @pessoas = Pessoa.all
