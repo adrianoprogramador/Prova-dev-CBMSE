@@ -28,7 +28,7 @@
       </div>
       <div class="col">
         <% @pessoa.contato_pessoas.each do |contato_pessoa| %>
-        <%= label_tag :Email %>
+        <%= label_tag :Contato %>
         <%= text_field_tag nil, contato_pessoa.contato, class:"form-control", disabled: true %>
         <% end %>
       </div>    
