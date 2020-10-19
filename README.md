@@ -36,4 +36,33 @@ O desafio será avaliado através dos seguintes critérios.
  - Os commits são pequenos e consistentes?
  - As mensagens de commit são claras?
 
-# Duvidas: jonas.nascimento@cbm.se.gov.br ou abrir uma issue
+ ## Colocando o projeto para funcionar
+
+ - 1.Instalar o Ruby na versão 2.4.7 e o Rails na versão 5.2.0
+    Veja como instalar nos links abaixo:
+    ruby
+    https://www.ruby-lang.org/pt/documentation/installation/
+    rails
+    http://guides.railsgirls.com/guides-ptbr/install
+
+
+ - 2.Instalar as dependências do jquery e bootstrap, para isso é necessário ter o Yarn instalado no seu sistema operacional 
+  Veja como instalar no link:
+  https://classic.yarnpkg.com/pt-BR/docs/install#debian-stable 
+ 
+ - 3.Depois de ter instalando todos os itens vamos começar pelas dependências, com o projeto baixado em seu computador ou servidor entre na pasta cmbse e digite 'yarn install' no seu terminal de comandos, com isso todos os arquivos de javascript e CSS serão instalados na pasta node_modules.
+
+ - 4.Configurando o banco de dados: acesse o arquivo database.yml no seguinte caminho do seu prjeto: cmbse/config/database.yml ajuste os campos username e password em seu arquivo na chave default como no modelo a seguir:
+  default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: coloque aqui seu usuário
+  password: coloque aqui sua senha
+  socket: /var/run/mysqld/mysqld.sock
+
+ - Observação importante: o projeto está configurado para rodar com banco de dados MYSQL, portanto para utilizar outro banco de dados entre em contato que estarei a disposição para ajudá-lo.
+
+ - 5.Depois de ter realizado todas as etapas basta entrar na pasta cmbse pelo seu terminal de comandos e digitar 'rails db:create', esse comando criara o banco no seu mysql, depois de feito a criação é hora de criar as tabelas que ja estão modeladas, faremos isso com o comando 'rails db:migrate', após alguns segundos a mansagem de retorno será apresentada, caso tudo ocorra perfeitamente basta digitar 'rails server' e sua aplicação estará no ar para utilização das funcionalidades. Geralmente o servidor emula a url de acesso na porta localhost:3000.
+
+# Duvidas: adrianocarvalhowebmail@gmail.com
