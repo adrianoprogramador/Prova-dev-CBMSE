@@ -12,6 +12,33 @@
     <%= text_field_tag nil, @pessoa.sobrenome, class:"form-control", disabled: true %>
   </div>
 
+  <br>
+
+  <h3>Contatos</h3>
+  
+  <hr>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col">
+        <% @pessoa.contato_pessoas.each do |contato_pessoa| %>
+        <%= label_tag :Tipo %>
+        <%= text_field_tag nil, contato_pessoa.tipo_contato.nome, class:"form-control", disabled: true %>
+        <% end %>
+      </div>
+      <div class="col">
+        <% @pessoa.contato_pessoas.each do |contato_pessoa| %>
+        <%= label_tag :Email %>
+        <%= text_field_tag nil, contato_pessoa.contato, class:"form-control", disabled: true %>
+        <% end %>
+      </div>    
+    </div>
+  </div>
+
+  <div class="form-group">
+     
+  </div>
+
 </form>
 
 

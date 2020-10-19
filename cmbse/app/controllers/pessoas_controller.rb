@@ -1,5 +1,6 @@
 class PessoasController < ApplicationController
   before_action :set_pessoa, only: [:show, :edit, :update, :destroy]
+  before_action :select_tipo_contato_opcoes, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @pessoas = Pessoa.all
@@ -39,6 +40,7 @@ class PessoasController < ApplicationController
   end
 
   def show
+    @pessoas = Pessoa.order(:id).includes(:contato_pessoas)
   end
 
   def destroy
@@ -50,13 +52,20 @@ class PessoasController < ApplicationController
   end
 
   private
+  def select_tipo_contato_opcoes
+    @tipo_contato_opcoes = TipoContato.all.pluck(:nome, :id)      
+  end
 
   def set_pessoa
     @pessoa = Pessoa.find(params[:id])
   end
 
   def pessoa_params
-    params.require(:pessoa).permit(:nome, :sobrenome)
+    params.require(:pessoa).permit(:nome, :sobrenome,
+      contato_pessoas_attributes: [
+        :id, :contato, :pessoa_id, :tipo_contato_id, :_destroy
+      ]    
+    )
   end
 
 end

@@ -1,0 +1,26 @@
+<div class="nested-fields">
+  
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <%= f.label :tipo_contato_id %>
+        <%= f.select("tipo_contato_id", @tipo_contato_opcoes, { include_blank: 'Selecione...' }, class:"form-control") %>   
+      </div>
+    </div>
+    <div class="col">      
+      <div class="form-group">
+        <%= f.label :contato %>
+        <%= f.text_field :contato, class:"form-control", placeholder:"Contato"  %>
+      </div>
+    </div>
+    <div class="col">      
+      <div class="form-group" style="padding-top:40px;">
+        
+        <%= link_to_remove_association('[Remover]', f) %>
+        
+      </div>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>

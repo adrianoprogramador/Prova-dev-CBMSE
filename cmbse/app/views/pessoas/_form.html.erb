@@ -1,7 +1,7 @@
 <%= form_with(model: pessoa, local: true) do |form| %>
   <% if pessoa.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pessoa.errors.count, "error") %> prohibited this pessoa from being saved:</h2>
+      <h2><%= pluralize(pessoa.errors.count, "erros") %> impediu o registro de ser salvo:</h2>
 
       <ul>
       <% pessoa.errors.full_messages.each do |message| %>
@@ -21,7 +21,21 @@
     <%= form.text_field :sobrenome, class:"form-control", placeholder:"Digite o sobrenome" %>
   </div>
 
+  <br>
+  
+  <h2>Contatos</h2>
+  
+  <hr>
+  
+  <div id="contato_pessoas">
+    <%= form.fields_for :contato_pessoas do |contato_pessoas_fields| %>      
+      <%= render partial: "contato_pessoa_fields", locals: { f: contato_pessoas_fields} %>      
+    <% end %>
+    <%= link_to_add_association '[Adicionar Contato]', form, :contato_pessoas %>
+  </div>
+
   <div class="actions">
+    <br>
     <%= form.submit "Confirmar", class:"btn btn-primary" %>
     <%= link_to "Voltar", pessoas_path, class:"btn btn-danger" %>
   </div>
