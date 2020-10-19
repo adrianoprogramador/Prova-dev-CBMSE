@@ -10,7 +10,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  
   <body>
+    
     <div class="container-fluid">
       <ul class="nav justify-content-end">
         <li>
@@ -22,5 +24,16 @@
       </ul>
       <%= yield %>
     </div>
+    
+    <% if notice %>
+      <script>
+        $.notify("<%= notice %>",  
+        {
+          position:'top center',
+          className: 'success',
+        }
+        );
+      </script>
+    <% end %>
   </body>
 </html>

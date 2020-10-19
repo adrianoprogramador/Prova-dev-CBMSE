@@ -18,6 +18,4 @@
 //= require popper.js/dist/popper
 //= require cocoon
 //= require notify-js-legacy/notify
-//= require bootstrap-growl/bootstrap-notify.js
-//= require notify-js/build/notify-js.js
-//= require bootstrap-growl/bootstrap-notify.js
+
