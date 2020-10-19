@@ -18,4 +18,3 @@
 //= require popper.js/dist/popper
 //= require cocoon
 //= require notify-js-legacy/notify
-

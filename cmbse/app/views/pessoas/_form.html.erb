@@ -1,13 +1,17 @@
 <%= form_with(model: pessoa, local: true) do |form| %>
   <% if pessoa.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pessoa.errors.count, "erros") %> impediu o registro de ser salvo:</h2>
-
-      <ul>
-      <% pessoa.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <h2><%= pluralize(pessoa.errors.count, "erro") %> impediu o registro de ser salvo:</h2>
+      <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                
+        <ul>
+          <h4>Alerta!</h4>
+        <% pessoa.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>        
+      </div>
     </div>
   <% end %>
 
